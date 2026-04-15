@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riz Electrics – Your Safety, Our Promise</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container text-center">
+    <a href="tel:07900117900"><i class="bi bi-telephone-fill me-1"></i> 07900 117900</a>
+    <a href="mailto:info@rizelectrics.co.uk"><i class="bi bi-envelope-fill me-1"></i> info@rizelectrics.co.uk</a>
+    <a href="https://api.whatsapp.com/send?phone=447900117900" target="_blank"><i class="bi bi-whatsapp me-1"></i> WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar sticky-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="navbar-brand" href="#">
+      <img src="{{ url_for('static', filename='logo.PNG') }}" alt="Riz Electrics Logo" class="navbar-logo-img"/>
+      RIZ <span>ELECTRICS</span>
+    </a>
+    <!-- Desktop nav links -->
+    <div class="d-none d-lg-flex align-items-center gap-2">
+      <a class="nav-white px-2 py-1" href="#home">Home</a>
+      <a class="nav-white px-2 py-1" href="#services">Services</a>
+      <a class="nav-white px-2 py-1" href="#about">About</a>
+      <a class="nav-white px-2 py-1" href="#areas">Areas We Cover</a>
+      <a class="nav-white px-2 py-1" href="#contact">Contact</a>
+      <a class="btn-gold ms-2 px-3 py-2 rounded" href="tel:07900117900" style="font-size:14px;"><i class="bi bi-telephone-fill me-1"></i>Call Now</a>
+    </div>
+    <!-- Hamburger -->
+    <button class="hamburger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE SIDEBAR -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+  <div class="offcanvas-header">
+    <div class="sidebar-logo">
+      <img src="{{ url_for('static', filename='logo.PNG') }}" alt="Logo"/>
+      <span class="offcanvas-title" id="mobileSidebarLabel">RIZ <span>ELECTRICS</span></span>
+    </div>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="sidebar-nav">
+      <li><a href="#home" class="sidebar-link"><i class="bi bi-house-fill"></i> Home</a></li>
+      <li><a href="#services" class="sidebar-link"><i class="bi bi-lightning-fill"></i> Services</a></li>
+      <li><a href="#about" class="sidebar-link"><i class="bi bi-info-circle-fill"></i> About</a></li>
+      <li><a href="#areas" class="sidebar-link"><i class="bi bi-geo-alt-fill"></i> Areas We Cover</a></li>
+      <li><a href="#contact" class="sidebar-link"><i class="bi bi-envelope-fill"></i> Contact</a></li>
+    </ul>
+    <div class="sidebar-call-btn">
+      <a href="tel:07900117900"><i class="bi bi-telephone-fill me-2"></i>Call: 07900 117900</a>
+    </div>
+    <div style="margin:16px 24px 0;">
+      <a href="https://api.whatsapp.com/send?phone=447900117900" class="btn-whatsapp d-block justify-content-center" target="_blank" style="border-radius:8px;padding:12px;text-align:center;"><i class="bi bi-whatsapp me-2"></i>WhatsApp Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- FLASH MESSAGES -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <h1>Your Safety,<br><span>Our Promise</span></h1>
+        <p>Trusted electrical services for homes &amp; businesses across London &amp; surrounding areas.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="tel:07900117900" class="btn-gold"><i class="bi bi-telephone-fill me-2"></i>Call Now</a>
+          <a href="https://api.whatsapp.com/send?phone=447900117900" class="btn-whatsapp" target="_blank"><i class="bi bi-whatsapp me-1"></i>WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center mt-4 mt-lg-0">
+        <div class="hero-card">
+          <img src="{{ url_for('static', filename='logo.PNG') }}" alt="Riz Electrics" style="width:90px;height:90px;object-fit:contain;margin-bottom:16px;background:transparent;mix-blend-mode:screen;"/>
+          <div class="hero-card-title">24/7 EMERGENCY</div>
+          <div class="hero-card-sub">Always on standby for you</div>
+          <a href="tel:07900117900" class="btn-gold d-block mt-3">07900 117900</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS BAR -->
+<div class="cred-bar">
+  <div class="container">
+    <h4>NICEIC Approved Contractor</h4>
+    <p>We adhere to strict industry regulations — every project meets the highest level of compliance and workmanship.</p>
+    <div class="niceic-pill">NICEIC CERTIFIED</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-heading">Our Services</h2>
+      <p class="section-sub">Tailored electrical solutions for every need</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card color-1">
+          <div class="service-icon">&#9889;</div>
+          <h5>Electrical Installation</h5>
+          <p>Comprehensive electrical solutions for residential and commercial projects, ensuring safety and efficiency from the ground up.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card color-2">
+          <div class="service-icon">&#128295;</div>
+          <h5>Regular Maintenance</h5>
+          <p>Preventive care for your electrical systems to avoid costly downtime and extend the lifespan of your infrastructure.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card color-3">
+          <div class="service-icon">&#128293;</div>
+          <h5>Fire Alarm Systems</h5>
+          <p>Advanced fire detection and suppression systems designed to protect your property and occupants with precision.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card color-4">
+          <div class="service-icon">&#9989;</div>
+          <h5>PAT Testing</h5>
+          <p>Comprehensive electrical safety audits to ensure compliance with UK regulations and maintain a safe working environment.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card color-5">
+          <div class="service-icon">&#128268;</div>
+          <h5>EV Charging Solutions</h5>
+          <p>Installation and maintenance of Level 2 and DC fast chargers for homes and businesses, supporting the electric future.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card color-6">
+          <div class="service-icon">&#128203;</div>
+          <h5>EICR Reports</h5>
+          <p>Expert EICR and periodic inspection services for landlords to meet legal requirements and ensure tenant safety.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="about-badge">WHO WE ARE</div>
+        <h2 class="section-heading" style="color:#fff;margin-bottom:16px;">About Riz Electrics</h2>
+        <p class="about-text">RizElectrics is a professional electrical services company built on quality, safety, and trust. As an approved contractor with NICEIC, we adhere to strict industry regulations, ensuring every project meets the highest level of compliance and workmanship.</p>
+        <p class="about-text mt-3">We specialise in delivering tailored electrical solutions, from modern installations to complex fault diagnostics. Our approach combines technical expertise with a commitment to excellence.</p>
+        <p class="about-text mt-3">When you choose RizElectrics, you're choosing precision, reliability, and peace of mind.</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <div class="about-stat"><div class="about-stat-num">24/7</div><div class="about-stat-lbl">Emergency Support</div></div>
+          <div class="about-stat"><div class="about-stat-num">NICEIC</div><div class="about-stat-lbl">Approved</div></div>
+          <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-lbl">Compliance</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EICR -->
+<section class="eicr-section" id="eicr">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='megger.PNG') }}" alt="Megger EICR Testing Device" class="eicr-device-img"/>
+      </div>
+      <div class="col-lg-7">
+        <h2>Same-Day EICR For Landlords &amp; Estate Agents</h2>
+        <p class="mt-3">We provide comprehensive EICR (Electrical Installation Condition Report) services tailored for the UK property market. Our reports ensure your rental property meets all safety standards, protecting both tenants and landlords from liability.</p>
+        <div class="mt-4">
+          <div class="eicr-list-item"><span class="eicr-check">&#10003;</span> Comprehensive Electrical Safety Audits</div>
+          <div class="eicr-list-item"><span class="eicr-check">&#10003;</span> Compliance with UK Wiring Regulations</div>
+          <div class="eicr-list-item"><span class="eicr-check">&#10003;</span> Identification of Faulty Components</div>
+          <div class="eicr-list-item"><span class="eicr-check">&#10003;</span> Clear Recommendations for Repairs</div>
+        </div>
+        <a href="#contact" class="btn-gold d-inline-block mt-4">Book Same-Day EICR</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS WE COVER -->
+<section class="areas-section" id="areas">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-heading" style="color:#fff;">Areas We Cover</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.75);">Professional electrical services across London &amp; Greater London</p>
+    </div>
+    <div class="areas-box">
+      <p class="areas-text">We provide reliable and professional electrical services across London and Greater London.</p>
+      <p class="areas-text mt-3">We regularly cover areas including <strong>Ilford, Canning Town, Stratford, Canary Wharf,</strong> and surrounding locations. We also work across all parts of <strong>Central, North, South, East, and West London.</strong></p>
+      <p class="areas-text mt-3">If you're unsure whether we cover your area, please get in touch — we're always happy to help and may still be able to assist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-heading" style="color:#fff;">Get in Touch</h2>
+      <p class="section-sub" style="color:var(--text-muted);">Request a quote or ask us anything</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="contact-info-card">
+          <h4>Contact Info</h4>
+          <div class="contact-item">
+            <div class="contact-dot"></div>
+            <div><strong>Phone</strong><span><a href="tel:07900117900" style="color:#fff;text-decoration:none;">07900 117900</a></span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-dot"></div>
+            <div><strong>Email</strong><span><a href="mailto:info@rizelectrics.co.uk" style="color:#fff;text-decoration:none;">info@rizelectrics.co.uk</a></span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-dot"></div>
+            <div><strong>WhatsApp</strong><span><a href="https://api.whatsapp.com/send?phone=447900117900" target="_blank" style="color:#fff;text-decoration:none;">+44 7900 117900</a></span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-dot"></div>
+            <div><strong>Availability</strong><span>24/7 Emergency Support</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-dot"></div>
+            <div><strong>Location</strong><span>Dagenham, London, RM8 2JR</span></div>
+          </div>
+          <div class="mt-4 social-row">
+            <a href="http://www.facebook.com" target="_blank" class="social-link" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            </a>
+            <a href="http://www.linkedin.com" target="_blank" class="social-link" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="form-card">
+          <h5 class="form-card-title">Send a Request</h5>
+          <form action="/submit" method="POST">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">First Name *</label>
+                <input type="text" class="form-control" name="first_name" placeholder="John" required/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Last Name *</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Smith" required/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control" name="email" placeholder="john@example.com" required/>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" name="phone" placeholder="07700 000000" required/>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Service Type *</label>
+                <select class="form-select" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option>Electrical Installation</option>
+                  <option>Regular Maintenance</option>
+                  <option>Fire Alarm Systems</option>
+                  <option>PAT Testing</option>
+                  <option>EV Charging Solutions</option>
+                  <option>EICR Report</option>
+                  <option>Emergency</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="4" placeholder="Describe your requirements..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-gold w-100 py-3" style="font-size:15px;border-radius:8px;border:none;cursor:pointer;">
+                  <i class="bi bi-send-fill me-2"></i>Send Request
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">RIZ <span>ELECTRICS</span></div>
+    <p class="mt-2">Your Safety, Our Promise</p>
+    <p class="mt-1">Serving Ilford, Stratford, Canary Wharf &amp; all London areas</p>
+    <div class="footer-divider"></div>
+    <p class="mt-2"><strong>Riz Electrics Ltd</strong></p>
+    <p class="mt-1">Registered Office: 158 Lodge Avenue, Dagenham, England, RM8 2JR</p>
+    <p class="mt-1">Registered in England and Wales No. 16739910</p>
+    <p class="mt-1">Registered Trade Body: NICEIC Approved Contractor</p>
+    <div class="footer-divider"></div>
+    <div class="footer-policy-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <span>|</span>
+      <a href="/terms-conditions">Terms &amp; Conditions</a>
+      <span>|</span>
+      <a href="/complaints-policy">Complaints Policy</a>
+    </div>
+    <div class="footer-bottom mt-3">&#169; 2026 Riz Electrics Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Sidebar smooth scroll - works on iOS Safari too
+  document.querySelectorAll('.sidebar-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = this.getAttribute('href');
+      var target = document.querySelector(targetId);
+
+      // Close sidebar first
+      var sidebarEl = document.getElementById('mobileSidebar');
+      var bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarEl);
+      if (bsOffcanvas) bsOffcanvas.hide();
+
+      // Scroll after sidebar closes
+      setTimeout(function() {
+        if (target) {
+          var yOffset = -70;
+          var y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 350);
+    });
+  });
+</script>
+</body>
+</html>
