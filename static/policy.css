@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap');
+
+.policy-page { background: #f8f9fb; padding: 60px 0; min-height: 80vh; }
+.policy-card { background: #fff; border-radius: 16px; padding: 48px 52px; max-width: 860px; margin: 0 auto; border: 1px solid #e8edf4; }
+.policy-card h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 700; color: #0a1628; margin-bottom: 6px; }
+.policy-updated { font-size: 13px; color: #888; margin-bottom: 32px; }
+.policy-card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: #0a1628; margin-top: 32px; margin-bottom: 10px; border-left: 4px solid #f5a623; padding-left: 12px; }
+.policy-card p { font-size: 15px; color: #3a4a5c; line-height: 1.8; margin-bottom: 12px; }
+.policy-card ul { padding-left: 20px; margin-bottom: 12px; }
+.policy-card ul li { font-size: 15px; color: #3a4a5c; line-height: 1.8; margin-bottom: 6px; }
+.policy-highlight { background: #fff8e8; border: 1px solid #f5a623; border-radius: 10px; padding: 20px 24px; margin: 16px 0; font-size: 15px; color: #3a4a5c; line-height: 1.8; }
+
+@media (max-width: 767px) {
+  .policy-card { padding: 28px 20px; }
+  .policy-card h1 { font-size: 30px; }
+}
